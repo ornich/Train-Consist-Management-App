@@ -1,20 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 
 public class TrainConsistApp {
 
     public static void main(String[] args) {
 
-        // Welcome Message
         System.out.println("=== Train Consist Management App ===");
 
-        // Dynamic Initialization of Train Consist
-        List<String> trainConsist = new ArrayList<>();
+        // Create LinkedHashSet for Train Formation
+        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
 
-        // Display Initial Bogie Count
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial bogie count: " + trainConsist.size());
+        // Attach Bogies
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        // Program continues...
+        // Attempt Duplicate Attachment
+        trainFormation.add("Sleeper");   // Duplicate (Ignored)
+
+        // Display Final Formation
+        System.out.println("\nFinal Train Formation (Insertion Order Preserved):");
+        System.out.println(trainFormation);
+
+        System.out.println("\nProgram continues...");
     }
 }
